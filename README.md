@@ -39,5 +39,5 @@ npm run start
 
 # Acknowledgements :
 
-Country data is fetched from https://restcountries.com/.
-Flag images are provided by https://flagcdn.com/.
+Country data is fetched from https://restcountries.com
+Flag images are provided by https://flagcdn.com

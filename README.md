@@ -8,14 +8,14 @@ This web application allows users to search for countries associated with a spec
 
 # Technology Stack Used 💻
 
-React: The application is built using the React JavaScript library.
-CSS: Styles are applied using CSS for a visually appealing user interface.
+- React: The application is built using the React JavaScript library.
+- CSS: Styles are applied using CSS for a visually appealing user interface.
 
 ## Features :sparkles:
 
-Search by Currency Code: Enter a currency code in the input field and click the "Search" button to find countries associated with that currency.
+- Search by Currency Code: Enter a currency code in the input field and click the "Search" button to find countries associated with that currency.
 
-Interactive UI: The application provides a clean and interactive user interface with flag images for each country.
+- Interactive UI: The application provides a clean and interactive user interface with flag images for each country.
 
 # Installation :
 
@@ -39,5 +39,5 @@ npm run start
 
 # Acknowledgements :
 
-Country data is fetched from https://restcountries.com
-Flag images are provided by https://flagcdn.com
+- Country data is fetched from https://restcountries.com
+- Flag images are provided by https://flagcdn.com

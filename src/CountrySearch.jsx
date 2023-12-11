@@ -5,19 +5,30 @@ const CountrySearch = () => {
   const [currencyCode, setCurrencyCode] = useState('');
   const [countries, setCountries] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const searchCountriesByCurrency = async () => {
     try {
       setLoading(true);
       const response = await fetch(`https://restcountries.com/v3.1/currency/${currencyCode}`);
+      
+      if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      }
+
       const data = await response.json();
       setCountries(data);
+      setError(null); 
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching data:', error.message);
+      setCountries([]); 
+      setError('No countries found for the specified currency.'); 
     } finally {
       setLoading(false);
     }
   };
+
+  // console.log(countries);
 
   useEffect(() => {
     if (currencyCode) {
@@ -43,6 +54,8 @@ const CountrySearch = () => {
 
       {loading && <p>Loading...</p>}
 
+      {error && <p style={{ color: 'red' }}>{error}</p>}
+
       {countries.length > 0 && (
         <div>
           <h2>Countries associated with {currencyCode}:</h2>
@@ -54,7 +67,7 @@ const CountrySearch = () => {
                   src={`https://flagcdn.com/w20/${country.cca2.toLowerCase()}.png`}
                   alt={`${country.name.common} Flag`}
                 />
-                {country.name.common}
+                {country.name.common} - {country.capital} (Capital City)
               </li>
             ))}
           </ul>
